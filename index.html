@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Premium printing and design services." />
+    <title>Rinku Arts</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="#/">
+          <span class="brand-mark">
+            <img id="brandLogo" class="brand-logo" alt="" />
+          </span>
+          <span class="brand-text">
+            <span class="brand-name" id="brandName">Rinku Arts</span>
+            <span class="brand-tagline" id="brandTagline">All kinds of design & printing work</span>
+          </span>
+        </a>
+
+        <nav class="nav" aria-label="Primary">
+          <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+            <i data-lucide="menu"></i>
+          </button>
+          <div class="nav-links" id="navLinks">
+            <a class="nav-link" href="#/">Home</a>
+            <a class="nav-link" href="#/services">Services</a>
+            <a class="nav-link" href="#/about">About</a>
+            <a class="nav-link" href="#/contact">Contact</a>
+            <a class="nav-cta" href="#/contact">
+              <span>Get a Quote</span>
+              <i data-lucide="arrow-right"></i>
+            </a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main" class="site-main">
+      <div id="route-outlet"></div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid" id="footerGrid"></div>
+      <div class="container footer-bottom">
+        <span id="footerCopyright"></span>
+      </div>
+    </footer>
+
+    <div class="toast-region" aria-live="polite" aria-atomic="true" id="toastRegion"></div>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="./data.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>

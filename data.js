@@ -7,7 +7,8 @@ window.BUSINESS_DATA = {
   person: {
     name: "Rinku Shah",
     title: "Managing Director",
-    photo: "https://scontent.fpkr1-1.fna.fbcdn.net/v/t39.30808-1/277668999_363301712478756_1588898307759980074_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=111&ccb=1-7&_nc_sid=2d3e12&_nc_ohc=FligAxYjsJwQ7kNvwH5XXCm&_nc_oc=Adk2eXY_qr8mMSZu_WdAfexyXhkSqFVtRxH7bP5JMkuSr43ZMyW3KLGv0Jn0DMGT67lu7sGoDV_7xYAJ5GHEYvBI&_nc_zt=24&_nc_ht=scontent.fpkr1-1.fna&_nc_gid=oex4QUzuu_pPmLx5J8xoQA&oh=00_Afku9X7Lc9GpnH-79gRZQVdsFmNNdVXjz1wHakbYvsGsMg&oe=694AE72D"
+    photo: "./images/md.jpeg",
+    mdImage: "./images/md.jpeg"
   },
   contact: {
     phones: ["9851167258", "9818256739"],
@@ -16,6 +17,7 @@ window.BUSINESS_DATA = {
     mapUrl: "https://maps.app.goo.gl/S2GaDbdRkJQghDcU6",
     locationImage: "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSzsANkPKgq1RhdAn1Gc4jWooAKKSLgQyU1CSFaRh2UqDCvcOirCXCFhOvJ1whp6zCYaOBqviqvmJGUSYaiT-63WVlnkZNj5D5RQzlGMf5naMoxj5EY7F9uKx7iMFak4hdFsdxp9=w521-h240-k-no",
     qrImage: "",
+    whatsappQrImage: "./images/whatsappqr.jpeg",
     whatsapp: "9851167258",
     viber: "9818256739"
   },
@@ -96,6 +98,11 @@ window.BUSINESS_DATA = {
       icon: "scan-line"
     },
     {
+      title: "Metal Etching",
+      description: "Custom metal etching for nameplates, tags, and signage.",
+      icon: "pen-tool"
+    },
+    {
       title: "Cup Printing",
       description: "Custom prints for cups and promotional drinkware.",
       icon: "cup-soda"
@@ -116,9 +123,9 @@ window.BUSINESS_DATA = {
       icon: "shopping-bag"
     },
     {
-      title: "Batch",
-      description: "Name badges and batch orders for events and teams.",
-      icon: "package"
+      title: "Badge",
+      description: "Custom name badges for events, offices, and teams.",
+      icon: "badge"
     }
   ]
 };

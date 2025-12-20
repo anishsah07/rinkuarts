@@ -111,6 +111,8 @@
 
   function renderHome() {
     const previewServices = data.services.slice(0, 6);
+    const heroImageUrl =
+      typeof data?.contact?.locationImage === "string" ? data.contact.locationImage.trim() : "";
     return `
       <section class="page">
         <div class="container">
@@ -139,6 +141,11 @@
                 </div>
               </div>
               <div class="hero-media" aria-hidden="true">
+                ${
+                  heroImageUrl.length > 0
+                    ? `<img class="hero-media-image" src="${escapeHtml(heroImageUrl)}" alt="" loading="lazy" />`
+                    : ""
+                }
                 <div class="hero-statbar">
                   <div class="stat">
                     <div class="k">Focus</div>
@@ -248,6 +255,12 @@
   }
 
   function renderAbout() {
+    const mdImageUrl =
+      typeof data?.person?.mdImage === "string" && data.person.mdImage.trim().length > 0
+        ? data.person.mdImage.trim()
+        : typeof data?.person?.photo === "string"
+          ? data.person.photo.trim()
+          : "";
     return `
       <section class="page">
         <div class="container">
@@ -272,19 +285,16 @@
               <div class="card md-card">
                 <div class="card-inner">
                   <div class="md-profile">
-                    <div class="md-avatar${
-                      data.person.photo && data.person.photo.trim().length > 0 ? " has-image" : ""
-                    }">
+                    <div class="md-media">
                       ${
-                        data.person.photo && data.person.photo.trim().length > 0
-                          ? `<img src="${escapeHtml(
-                              data.person.photo.trim()
-                            )}" alt="${escapeHtml(
+                        mdImageUrl.length > 0
+                          ? `<img class="md-photo" src="${escapeHtml(mdImageUrl)}" alt="${escapeHtml(
                               data.person.name
-                            )} portrait" loading="lazy" referrerpolicy="no-referrer">`
-                          : `<div class="md-placeholder"><span>MD Photo</span></div>`
+                            )} photo" loading="lazy" referrerpolicy="no-referrer">`
+                          : `<div class="md-placeholder md-photo-placeholder"><span>MD Photo</span></div>`
                       }
                     </div>
+                    <div class="md-bar">MD</div>
                     <div class="md-meta">
                       <div class="md-name">${escapeHtml(data.person.name)}</div>
                       <div class="md-title">${escapeHtml(data.person.title)}</div>
@@ -321,6 +331,8 @@
     const locationImageUrl =
       typeof data?.contact?.locationImage === "string" ? data.contact.locationImage.trim() : "";
     const qrImage = typeof data?.contact?.qrImage === "string" ? data.contact.qrImage.trim() : "";
+    const whatsappQrImage =
+      typeof data?.contact?.whatsappQrImage === "string" ? data.contact.whatsappQrImage.trim() : "";
     const qrImageUrl =
       qrImage.length > 0
         ? qrImage
@@ -359,7 +371,7 @@
           <div class="section-header">
             <div>
               <h1 class="section-title">Contact</h1>
-              <p class="section-subtitle">Send a message — this form is UI-only and shows a success toast.</p>
+              <p class="section-subtitle">Scan the QR below to connect with us.</p>
             </div>
             <div class="pill">
               <i data-lucide="map-pin"></i>
@@ -427,30 +439,24 @@
               </div>
             </div>
 
-            <div class="card">
+            <div class="card whatsapp-qr-card">
               <div class="card-inner">
-                <form class="form" id="contactForm">
-                  <div class="field">
-                    <label class="label" for="name">Name</label>
-                    <input class="input" id="name" name="name" type="text" autocomplete="name" required />
-                  </div>
-                  <div class="field">
-                    <label class="label" for="phone">Phone</label>
-                    <input class="input" id="phone" name="phone" type="tel" autocomplete="tel" />
-                  </div>
-                  <div class="field">
-                    <label class="label" for="email">Email</label>
-                    <input class="input" id="email" name="email" type="email" autocomplete="email" required />
-                  </div>
-                  <div class="field">
-                    <label class="label" for="message">Message</label>
-                    <textarea class="textarea" id="message" name="message" required></textarea>
-                  </div>
-                  <button class="btn btn-primary" type="submit">
-                    <span>Send Message</span>
-                    <i data-lucide="send"></i>
-                  </button>
-                </form>
+                <div class="qr-head">
+                  <div class="qr-title">WhatsApp</div>
+                  <div class="qr-sub">Scan to open our WhatsApp business account.</div>
+                </div>
+                <div class="qr-link whatsapp-qr-link" aria-label="WhatsApp QR code">
+                  <img
+                    class="qr-image"
+                    src="${escapeHtml(
+                      whatsappQrImage.length > 0
+                        ? whatsappQrImage
+                        : "./images/WhatsApp%20Image%202025-12-20%20at%2008.38.10.jpeg"
+                    )}"
+                    alt="WhatsApp business QR code"
+                    loading="lazy"
+                  />
+                </div>
               </div>
             </div>
           </div>

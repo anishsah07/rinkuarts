@@ -112,7 +112,8 @@
   function renderHome() {
     const previewServices = data.services.slice(0, 6);
     const heroImageUrl =
-      typeof data?.contact?.locationImage === "string" ? data.contact.locationImage.trim() : "";
+      (data.brand && data.brand.heroImage) ||
+      (typeof data?.contact?.locationImage === "string" ? data.contact.locationImage.trim() : "");
     return `
       <section class="page">
         <div class="container">
@@ -138,12 +139,16 @@
                     <span>Contact</span>
                     <i data-lucide="phone"></i>
                   </a>
+                  <a class="btn" href="${escapeHtml(getMapUrl())}" target="_blank" rel="noopener noreferrer">
+                    <span>Location</span>
+                    <i data-lucide="map-pin"></i>
+                  </a>
                 </div>
               </div>
               <div class="hero-media" aria-hidden="true">
                 ${
                   heroImageUrl.length > 0
-                    ? `<img class="hero-media-image" src="${escapeHtml(heroImageUrl)}" alt="" loading="lazy" />`
+                    ? `<img class="hero-image" src="${escapeHtml(heroImageUrl)}" alt="Rinku Arts services" loading="lazy" />`
                     : ""
                 }
                 <div class="hero-statbar">
@@ -233,8 +238,16 @@
       : ["card-span-7", "card-span-5", "card-span-4", "card-span-4", "card-span-4", "card-span-8"];
     const spanClass = spans[index % spans.length];
 
+    const imageHtml = service.image ? `
+      <div class="service-bg-media">
+        <img src="${escapeHtml(service.image)}" alt="${escapeHtml(service.title)}" loading="lazy" />
+        <div class="service-overlay"></div>
+      </div>
+    ` : "";
+
     return `
-      <article class="card service-card ${spanClass}">
+      <article class="card service-card ${spanClass} ${service.image ? "has-image" : ""}">
+        ${imageHtml}
         <div class="card-inner">
           <div class="service-head">
             <div class="icon-chip" aria-hidden="true">
@@ -247,7 +260,7 @@
           </div>
           <div class="service-meta">
             <span>${escapeHtml(data.brand.name)}</span>
-            <span>Premium finish</span>
+            <a class="btn btn-sm" href="#/contact">Order Now</a>
           </div>
         </div>
       </article>
@@ -348,18 +361,30 @@
         const trimmed = String(raw).trim();
         let icon = "phone";
         let tag = "";
+        let href = "";
         if (whatsappNumber && trimmed === whatsappNumber) {
           icon = "message-circle";
           tag = "WhatsApp";
+          href = whatsappHref;
         } else if (viberNumber && trimmed === viberNumber) {
           icon = "phone-call";
           tag = "Viber";
+          href = viberHref;
         }
+
+        const tagHtml = tag
+          ? href
+            ? `<a class="phone-tag" href="${escapeHtml(href)}" ${
+                tag === "WhatsApp" ? 'target="_blank" rel="noopener noreferrer"' : ""
+              }>${escapeHtml(tag)}</a>`
+            : `<span class="phone-tag">${escapeHtml(tag)}</span>`
+          : "";
+
         return `
           <div class="phone-line">
             <i data-lucide="${icon}"></i>
             <span>${escapeHtml(trimmed)}</span>
-            ${tag ? `<span class="phone-tag">${escapeHtml(tag)}</span>` : ""}
+            ${tagHtml}
           </div>
         `;
       })
@@ -414,27 +439,6 @@
                       <div class="v">${escapeHtml(data.contact.address)}</div>
                     </div>
                   </div>
-                </div>
-
-                <div class="contact-apps">
-                  ${
-                    whatsappHref
-                      ? `<a class="contact-app" href="${escapeHtml(
-                          whatsappHref
-                        )}" target="_blank" rel="noopener noreferrer">
-                          <i data-lucide="message-circle"></i>
-                          <span>WhatsApp</span>
-                        </a>`
-                      : ""
-                  }
-                  ${
-                    viberHref
-                      ? `<a class="contact-app" href="${escapeHtml(viberHref)}">
-                          <i data-lucide="phone-call"></i>
-                          <span>Viber</span>
-                        </a>`
-                      : ""
-                  }
                 </div>
               </div>
             </div>
@@ -555,7 +559,10 @@
       </div>
       <div>
         <h3 class="footer-title">Address</h3>
-        <p class="footer-text">${escapeHtml(data.contact.address)}</p>
+        <a class="footer-link" href="${escapeHtml(getMapUrl())}" target="_blank" rel="noopener noreferrer">
+          <i data-lucide="map-pin"></i>
+          <span>${escapeHtml(data.contact.address)}</span>
+        </a>
       </div>
     `;
     footerCopyright.textContent = `© ${year} ${data.brand.name}. All rights reserved.`;

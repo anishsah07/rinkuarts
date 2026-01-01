@@ -2,7 +2,8 @@ window.BUSINESS_DATA = {
   brand: {
     name: "Rinku Arts",
     tagline: "All kinds of design & printing work",
-    logo: "https://scontent.fpkr1-1.fna.fbcdn.net/v/t1.6435-1/78509260_112353330249172_8715856869840650240_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=103&ccb=1-7&_nc_sid=1d2534&_nc_ohc=dT6vnXvDg5kQ7kNvwE8x-jj&_nc_oc=Adm19COFXJr8CayrU-H4iTTl8PEkW27oErjQAMFGbg6PJqTWvMJVqRSYHOe_g6qCa2_l2EqmPgQEAJqRpIiKgS1_&_nc_zt=24&_nc_ht=scontent.fpkr1-1.fna&_nc_gid=a36ea3BnAzOXTOPJcsuZQQ&oh=00_Afns825Leh5cjOH1nyqbvMwpokxR7FRT2lPf26WApetIXw&oe=696C904E"
+    logo: "https://scontent.fpkr1-1.fna.fbcdn.net/v/t1.6435-1/78509260_112353330249172_8715856869840650240_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=103&ccb=1-7&_nc_sid=1d2534&_nc_ohc=dT6vnXvDg5kQ7kNvwE8x-jj&_nc_oc=Adm19COFXJr8CayrU-H4iTTl8PEkW27oErjQAMFGbg6PJqTWvMJVqRSYHOe_g6qCa2_l2EqmPgQEAJqRpIiKgS1_&_nc_zt=24&_nc_ht=scontent.fpkr1-1.fna&_nc_gid=a36ea3BnAzOXTOPJcsuZQQ&oh=00_Afns825Leh5cjOH1nyqbvMwpokxR7FRT2lPf26WApetIXw&oe=696C904E",
+    heroImage: "./images/hero-new.jpeg"
   },
   person: {
     name: "Rinku Shah",
@@ -36,96 +37,118 @@ window.BUSINESS_DATA = {
       "Support for both small and bulk orders"
     ]
   },
+  /* 
+    To change service images, update the 'image' property below.
+    Leave it empty ("") to hide the image.
+  */
   services: [
     {
       title: "Stamp",
       description: "Pre-ink, nylon, and custom stamp solutions for office use.",
-      icon: "stamp"
+      icon: "stamp",
+      image: "./images/services/stamp.jpg"
     },
     {
       title: "Visiting Card",
       description: "Premium business cards with clean, modern finishes.",
-      icon: "credit-card"
+      icon: "credit-card",
+      image: "./images/services/visiting-card.jpg"
     },
     {
       title: "Letterhead",
       description: "Professional letterheads and stationery sets for daily work.",
-      icon: "file-text"
+      icon: "file-text",
+      image: "./images/services/letterhead.jpg"
     },
     {
       title: "Bill Pad",
       description: "Custom bill books and pads with branding and numbering options.",
-      icon: "receipt"
+      icon: "receipt",
+      image: "./images/services/bill-pad.jpg"
     },
     {
       title: "ID Card",
       description: "Durable ID cards for staff, schools, and organizations.",
-      icon: "id-card"
+      icon: "id-card",
+      image: "./images/services/id-card.jpg"
     },
     {
       title: "PVC Card",
       description: "Long-lasting PVC cards for membership or access use.",
-      icon: "badge"
+      icon: "badge",
+      image: "./images/services/pvc-card.jpg"
     },
     {
       title: "T‑Shirt Print",
       description: "High-quality T-shirt printing for events and teams.",
-      icon: "shirt"
+      icon: "shirt",
+      image: "./images/services/tshirt-print.jpg"
     },
     {
       title: "Flex Print",
       description: "Large-format flex prints for promotions and events.",
-      icon: "image"
+      icon: "image",
+      image: "./images/services/flex-print.jpg"
     },
     {
       title: "Sticker Print",
       description: "Product, label, and custom stickers in multiple sizes.",
-      icon: "tag"
+      icon: "tag",
+      image: "./images/services/sticker-print.jpg"
     },
     {
       title: "Board & Light Board",
       description: "Boards and illuminated signage for shops and brands.",
-      icon: "layout-dashboard"
+      icon: "layout-dashboard",
+      image: "./images/services/light-board.jpg"
     },
     {
       title: "2D/3D Board",
       description: "Dimensional signage for premium storefront presence.",
-      icon: "layers"
+      icon: "layers",
+      image: "./images/services/2d-3d-board.jpg"
     },
     {
       title: "MDF/CNC Cutting",
       description: "Precision cutting and fabrication for signage and displays.",
-      icon: "scan-line"
+      icon: "scan-line",
+      image: "./images/services/mdf-cnc.jpg"
     },
     {
       title: "Metal Etching",
       description: "Custom metal etching for nameplates, tags, and signage.",
-      icon: "pen-tool"
+      icon: "pen-tool",
+      image: "./images/services/metal-etching.jpg"
     },
     {
       title: "Cup Printing",
       description: "Custom prints for cups and promotional drinkware.",
-      icon: "cup-soda"
+      icon: "cup-soda",
+      image: "./images/services/cup-printing.jpg"
     },
     {
       title: "Token of Love",
       description: "Personalized gifts and tokens for special occasions.",
-      icon: "heart"
+      icon: "heart",
+      image: "./images/services/token-of-love.jpg"
     },
     {
       title: "Certificate",
       description: "Certificates for schools, events, and organizations.",
-      icon: "award"
+      icon: "award",
+      image: "./images/services/certificate.jpg"
     },
     {
       title: "Bag Printing",
       description: "Branded bag printing for shops and packaging.",
-      icon: "shopping-bag"
+      icon: "shopping-bag",
+      image: "./images/services/bag-printing.jpg"
     },
     {
       title: "Badge",
       description: "Custom name badges for events, offices, and teams.",
-      icon: "badge"
+      icon: "badge",
+      image: "./images/services/badge.jpg"
     }
   ]
 };

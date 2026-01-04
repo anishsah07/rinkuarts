@@ -20,7 +20,12 @@ window.BUSINESS_DATA = {
     qrImage: "",
     whatsappQrImage: "./images/whatsappqr.jpeg",
     whatsapp: "9851167258",
-    viber: "9818256739"
+    viber: "9818256739",
+    social: {
+      facebook: "https://www.facebook.com/rinkuartkupondole/",
+      instagram: "https://www.instagram.com/rinku.arts2015?igsh=dXYwZnBoenRlZnpv",
+      tiktok: "https://www.tiktok.com/@rinkuarts0?is_from_webapp=1&sender_device=pc"
+    }
   },
   about: {
     headline: "Premium printing and branding support for growing businesses.",
@@ -149,6 +154,18 @@ window.BUSINESS_DATA = {
       description: "Custom name badges for events, offices, and teams.",
       icon: "badge",
       image: "./images/services/badge.jpg"
+    },
+    {
+      title: "Number Plate",
+      description: "Vehicle and house number plates with custom designs.",
+      icon: "hash",
+      image: "./images/services/number-plate.jpg"
+    },
+    {
+      title: "Frame",
+      description: "Photo frames and custom framing solutions.",
+      icon: "image",
+      image: "./images/services/frame.jpg"
     }
   ]
 };

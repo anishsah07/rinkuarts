@@ -180,9 +180,9 @@
                 <i data-lucide="arrow-right"></i>
               </a>
             </div>
-            <div class="grid bento">
+            <div class="grid services-grid">
               ${previewServices
-                .map((s, idx) => renderServiceCard(s, idx))
+                .map((s) => renderServiceCard(s))
                 .join("")}
             </div>
           </div>
@@ -224,29 +224,23 @@
               <i data-lucide="send"></i>
             </a>
           </div>
-          <div class="grid bento">
-            ${data.services.map((s, idx) => renderServiceCard(s, idx, true)).join("")}
+          <div class="grid services-grid">
+            ${data.services.map((s) => renderServiceCard(s)).join("")}
           </div>
         </div>
       </section>
     `;
   }
 
-  function renderServiceCard(service, index, full = false) {
-    const spans = full
-      ? ["card-span-6", "card-span-6", "card-span-4", "card-span-4", "card-span-4"]
-      : ["card-span-7", "card-span-5", "card-span-4", "card-span-4", "card-span-4", "card-span-8"];
-    const spanClass = spans[index % spans.length];
-
+  function renderServiceCard(service) {
     const imageHtml = service.image ? `
-      <div class="service-bg-media">
+      <div class="service-media">
         <img src="${escapeHtml(service.image)}" alt="${escapeHtml(service.title)}" loading="lazy" />
-        <div class="service-overlay"></div>
       </div>
     ` : "";
 
     return `
-      <article class="card service-card ${spanClass} ${service.image ? "has-image" : ""}">
+      <article class="card service-card">
         ${imageHtml}
         <div class="card-inner">
           <div class="service-head">
@@ -255,9 +249,9 @@
             </div>
             <div>
               <h3 class="service-title">${escapeHtml(service.title)}</h3>
-              <p class="service-desc">${escapeHtml(service.description)}</p>
             </div>
           </div>
+          <p class="service-desc">${escapeHtml(service.description)}</p>
           <div class="service-meta">
             <span>${escapeHtml(data.brand.name)}</span>
             <a class="btn btn-sm" href="#/contact">Order Now</a>
@@ -439,6 +433,31 @@
                       <div class="v">${escapeHtml(data.contact.address)}</div>
                     </div>
                   </div>
+                  <div class="kv-item">
+                    <i data-lucide="globe"></i>
+                    <div>
+                      <div class="k">Follow us</div>
+                      <div class="v footer-social" style="margin-top: 4px;">
+                        ${data.contact.social && data.contact.social.facebook ? `
+                          <a class="social-btn" href="${escapeHtml(data.contact.social.facebook)}" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                            <i data-lucide="facebook"></i>
+                          </a>
+                        ` : ""}
+                        ${data.contact.social && data.contact.social.instagram ? `
+                          <a class="social-btn" href="${escapeHtml(data.contact.social.instagram)}" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                            <i data-lucide="instagram"></i>
+                          </a>
+                        ` : ""}
+                        ${data.contact.social && data.contact.social.tiktok ? `
+                          <a class="social-btn" href="${escapeHtml(data.contact.social.tiktok)}" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" class="lucide">
+                              <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 1 0 7.7 6.82V9.08a9.93 9.93 0 0 0 6.2 2.5v-3.51a6.12 6.12 0 0 1-4.67-1.38z"/>
+                            </svg>
+                          </a>
+                        ` : ""}
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -563,6 +582,25 @@
           <i data-lucide="map-pin"></i>
           <span>${escapeHtml(data.contact.address)}</span>
         </a>
+        <div class="footer-social">
+          ${data.contact.social && data.contact.social.facebook ? `
+            <a class="social-btn" href="${escapeHtml(data.contact.social.facebook)}" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <i data-lucide="facebook"></i>
+            </a>
+          ` : ""}
+          ${data.contact.social && data.contact.social.instagram ? `
+            <a class="social-btn" href="${escapeHtml(data.contact.social.instagram)}" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <i data-lucide="instagram"></i>
+            </a>
+          ` : ""}
+          ${data.contact.social && data.contact.social.tiktok ? `
+            <a class="social-btn" href="${escapeHtml(data.contact.social.tiktok)}" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" class="lucide">
+                <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 1 0 7.7 6.82V9.08a9.93 9.93 0 0 0 6.2 2.5v-3.51a6.12 6.12 0 0 1-4.67-1.38z"/>
+              </svg>
+            </a>
+          ` : ""}
+        </div>
       </div>
     `;
     footerCopyright.textContent = `© ${year} ${data.brand.name}. All rights reserved.`;
